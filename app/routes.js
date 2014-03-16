@@ -14,10 +14,17 @@ module.exports = function(app, passport){
 //omitted signup part of tutorial
 
 //profile section
-
+//show stats
   app.get('/profile',isLoggedIn, function(req,res){
     res.render('profile.ejs', {
 	user:req.user//pass user to template
+    });
+  });
+
+//trophy case
+  app.get('/trophy',isLoggedIn,function(req,res){
+    res.render('trophy.ejs',{
+      user:req.user
     });
   });
 
@@ -34,11 +41,11 @@ module.exports = function(app, passport){
     res.redirect('/');
   }
 //fitbit routes
-  app.get('/auth/fitbit',passport.authenticate('fitbit'));
+  app.get('/auth/fitbit',passport.authenticate('fitbit'),function(req,res){});
 
   app.get('/auth/fitbit/callback',
-    passport.authenticate('fitbit',{
-      successRedirect:'/profile',
-      failureRedirect:'/'
-    }));
+    passport.authenticate('fitbit',{failureRedirect:'/'}),
+    function(req,res){
+      res.redirect('/profile');
+    });
 };

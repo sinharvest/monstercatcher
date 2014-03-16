@@ -9,7 +9,13 @@ var express = require('express'),
  
 var passport = require('passport');
 //Configuration==================================
+var db = mongoose.connection;
 mongoose.connect(configDB.url);//connect to the db
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  console.log('the db has been connected');
+});
+
 require('./config/passport')(passport);//pass passport for configuration
 
 app.configure(function(){
