@@ -1,5 +1,6 @@
+var User = require('./models/user');
 //app/routes.js
-module.exports = function(app, passport){
+module.exports = function(app, passport, db){
 
 //homepage	
   app.get('/', function(req, res){
@@ -16,8 +17,14 @@ module.exports = function(app, passport){
 //profile section
 //show stats
   app.get('/profile',isLoggedIn, function(req,res){
+	console.log('req is ::::: '+req.name);
+	console.log('req.user ::::: '+req.user);
+        var query = User.where({id:req.user});
+	query.findOne(function(err, kitten){console.log('kitty ='+kitten);	
+	console.log('SWAG = '+query);//findOne({ '': 'Ghost' },
     res.render('profile.ejs', {
-	user:req.user//pass user to template
+	user:kitten//pass user to template
+	});
     });
   });
 

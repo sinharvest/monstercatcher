@@ -8,8 +8,10 @@ var configAuth = require('./auth');
 
 module.exports = function(passport){
   passport.serializeUser(function(user,done){
-    done(null,user);
+    console.log('user.id ---> '+user.id);
+    done(null,user.id);
   });
+
   passport.deserializeUser(function(user,done){
     done(null,user);
   });
@@ -34,7 +36,7 @@ module.exports = function(passport){
     console.log('tokensecret '+tokenSecret);
     console.log('profile: '+profile._json.user.fullName);
     console.log('profileID: '+profile.id);
-    console.log(done);
+    //console.log(done);
   	User.update(
 	    {
 		id:profile.id,
