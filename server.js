@@ -23,9 +23,9 @@ app.configure(function(){
 	app.use(express.logger('dev'));//log every req to the console
 	app.use(express.cookieParser());//read cookies(needed for auth)
 	app.use(express.bodyParser());//get information from html forms
-
+   
 	app.set('view engine', 'ejs');//ejs is set as template engine
-
+        app.use(express.static('public'));
 	//required for passport
 	app.use(express.session({secret:'secretsarenofuntrollololololol'}));
 	app.use(passport.initialize());
