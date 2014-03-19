@@ -31,19 +31,32 @@ module.exports = function(app, passport, db){
 
 //trophy case
   app.get('/trophy',isLoggedIn,function(req,res){
-    res.render('trophy.ejs',{
-      user:req.user
+    var query = User.where({id:req.user});
+    query.findOne(function(err, kitten){console.log('kitty ='+kitten);
+      res.render('trophy.ejs', {
+	user:kitten
+      });
     });
   });
+
 
 //logout
   app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
   });
+//favicon
+//
+ // app.get('/favicon.ico', function(req,res){
+   // if (req.url === '/favicon.ico') {
+     //   res.writeHead(200, {'Content-Type': 'images/x-icon'} );
+//	    return res.end();
+//	    }
+ // });
 
 //route middleware to make sure a user is logged in
   function isLoggedIn(req, res, next){
+    console.log("what the fuck is req auth? -->"+req);
     if(req.isAuthenticated())
       return next();
     res.redirect('/');

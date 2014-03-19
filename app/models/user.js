@@ -9,7 +9,12 @@ var fitbitSchema = mongoose.Schema({
     timezoneOffset:String,
     avatar: String,
     distanceUnit: String,
-    trophies: [Boolean]  
+    trophies: [Boolean],
+    setGoal: Boolean,
+    calorieGoal: Number,
+    stepGoal: Number,
+    caloriesBurntToday: Number,
+    caloriesBurntToday: Number 
 });
 //fitbitSchema.set('_id',false);
 module.exports = mongoose.model('User',fitbitSchema);

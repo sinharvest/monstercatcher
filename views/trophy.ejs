@@ -1,0 +1,48 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+  <title>Trophy Case</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <style>
+    body {word-wrap:break-word;
+          padding-right:50px;
+          padding-left:50px;
+          padding-top:10px;
+         }
+    .avatar{
+           margin-top:3px;
+           border-radius: 50%;
+           height:35px;
+          -moz-border-radius: 50%;
+          -webkit-border-radius: 50%;
+          }
+  </style>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+ <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">MonsterCatcher</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/trophy">Trophy Case</a></li>
+        <li><a href="/profile">Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><div class="avatar"><img alt src=<%=user.avatar%> class="avatar"/></div></li>
+        <li><a href="/logout">Logout</a></li>
+    </div>
+  </div>
+</nav>
+
+</body>
+</html>

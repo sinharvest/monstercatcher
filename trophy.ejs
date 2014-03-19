@@ -1,12 +1,10 @@
-<!-- views/profile.ejs -->
+<!-- views/trophy.ejs -->
 <!doctype html>
 <html>
 <head>
-  <title>Monster Catcher</title>
+  <title>Node Auth</title>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
   <style>
     body {word-wrap:break-word;
           padding-right:50px;
@@ -21,7 +19,6 @@
           -webkit-border-radius: 50%;
           }
   </style>
-</head>
 <body>
 <nav class="navbar navbar-inverse" role="navigation">
  <div class="container-fluid">
@@ -38,7 +35,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="/trophy">Trophy Case</a></li>
-        <li class="active"><a href="/profile">Profile</a></li>
+        <li class="active"><a href="/">Profile</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><div class="avatar"><img alt src=<%=user.avatar%> class="avatar"/></div></li>
@@ -46,17 +43,5 @@
     </div>
   </div>
 </nav>
-</div>
-<!-- check if goals are set -->
-<script>
-$(".alert").alert()
-</script>
-  <div class="alert alert-info alert-dismissable">
-  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-  <strong>Welcome!</strong> Please set a custom calorie or step goal below!
-</div>
 
-
-</body>
-</html>
 

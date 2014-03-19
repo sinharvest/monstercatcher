@@ -64,8 +64,9 @@ module.exports = function(passport){
           name: profile._json.user.fullName,
           timezoneOffset: profile._json.user.offsetFromUTCMillis,
           avatar:profile._json.user.avatar,
-          distanceUnit:profile._json.user.distanceUnit
-          });
+          distanceUnit:profile._json.user.distanceUnit,
+          setGoal:false
+	  });
       });
     done(null,profile);
   }
