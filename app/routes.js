@@ -20,7 +20,8 @@ module.exports = function(app, passport, db){
 	console.log('req is ::::: '+req.name);
 	console.log('req.user ::::: '+req.user);
         var query = User.where({id:req.user});
-	query.findOne(function(err, kitten){console.log('kitty ='+kitten);	
+	query.findOne(function(err, kitten){console.log('kitty ='+kitten);
+	
 	console.log('SWAG = '+query);//findOne({ '': 'Ghost' },
     res.render('profile.ejs', {
 	user:kitten//pass user to template

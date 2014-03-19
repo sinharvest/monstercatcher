@@ -37,24 +37,37 @@ module.exports = function(passport){
     console.log('profile: '+profile._json.user.fullName);
     console.log('profileID: '+profile.id);
     //console.log(done);
-  	User.update(
-	    {
-		id:profile.id,
-		accessToken:token,
-		accessSecret: tokenSecret,
-		name: profile._json.user.fullName,
-		timezoneOffset: profile._json.user.offsetFromUTCMillis
-		
-            },
-	    { upsert: true },
-	    function(err, numberAffected){
-	    	if(err) console.error(err);
-		console.log('User updated '+numberAffected+' records.');
-            }
-    );
-
+    User.find({id:profile.id},function(){  //if profile.id exists in db
+      User.update(
+        {
+	  id:profile.id,
+	  accessToken:token,
+	  accessSecret: tokenSecret,
+	  name: profile._json.user.fullName,
+	  timezoneOffset: profile._json.user.offsetFromUTCMillis,
+	  avatar:profile._json.user.avatar,
+	  distanceUnit:profile._json.user.distanceUnit
+        },
+	{ upsert: true },
+	function(err, numberAffected){
+	  if(err) console.error(err);
+	  console.log('User updated '+numberAffected+' records.');
+        }
+      );done(null,profile);});
+  //else if profile.id does not exist in the db... create
+        //if profile.id exists in db
+        User.create(
+          {
+          id:profile.id,
+          accessToken:token,
+          accessSecret: tokenSecret,
+          name: profile._json.user.fullName,
+          timezoneOffset: profile._json.user.offsetFromUTCMillis,
+          avatar:profile._json.user.avatar,
+          distanceUnit:profile._json.user.distanceUnit
+          });
+      });
     done(null,profile);
-    });
   }
 ));
 };
