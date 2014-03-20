@@ -41,6 +41,7 @@
         <li class="active"><a href="/profile">Profile</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <!--  <li><button type="button" class="btn btn-inverse"><span class="glyphicon glyphicon-refresh"></span></button></li>-->
         <li><div class="avatar"><img alt src=<%=user.avatar%> class="avatar"/></div></li>
         <li><a href="/logout">Logout</a></li>
     </div>
@@ -51,11 +52,56 @@
 <script>
 $(".alert").alert()
 </script>
-  <div class="alert alert-info alert-dismissable">
+<div class="alert alert-info alert-dismissable">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-  <strong>Welcome!</strong> Please set a custom calorie or step goal below!
+  <strong>Welcome <%=user.name%>!</strong> Please set a custom calorie or step goal below!
+</div>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Goal Settings
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+ <div class="row">
+<div class="col-lg-6">
+    <div class="input-group">
+      <input type="number" class="form-control"i value="Daily Goal: # of Calories to Burn">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Set!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+<br>
+<div class="row">
+<div class="col-lg-6">
+    <div class="input-group">
+      <input type="number" class="form-control"i value="Daily Goal: # of Steps">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Set!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+
+     </div>
+    </div>
+  </div>
 </div>
 
+
+
+
+
+<!--
+<form action="/create" method="post" accept-charset="utf-8">
+  <input type="text" name="content" />
+</form>-->
 
 </body>
 </html>
