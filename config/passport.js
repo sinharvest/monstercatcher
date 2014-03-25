@@ -37,27 +37,30 @@ module.exports = function(passport){
     console.log('profile: '+profile._json.user.fullName);
     console.log('profileID: '+profile.id);
     //console.log(done);
-    User.find({id:profile.id},function(){  //if profile.id exists in db
-      User.update(
-        {
-	  id:profile.id,
+    var logicGate = false;
+  User.findOne({id:profile.id},function(err, item){  //if profile.id exists in db
+    if(item){
+      console.log('found profile id and updating');
+      item.update(
+      {	  id:profile.id,
 	  accessToken:token,
 	  accessSecret: tokenSecret,
 	  name: profile._json.user.fullName,
 	  timezoneOffset: profile._json.user.offsetFromUTCMillis,
 	  avatar:profile._json.user.avatar,
 	  distanceUnit:profile._json.user.distanceUnit
-        },
-	{ upsert: true },
+      },
+      { upsert: true },
 	function(err, numberAffected){
 	  if(err) console.error(err);
-	  console.log('User updated '+numberAffected+' records.');
-        }
-      );done(null,profile);});
-  //else if profile.id does not exist in the db... create
-        //if profile.id exists in db
-        User.create(
-          {
+	    console.log('User updated '+numberAffected+' records.');
+	    logicGate=true;
+	  }
+      );done(null,profile);}
+    if(err){
+      console.log('no profile found');
+      User.create(
+         {
           id:profile.id,
           accessToken:token,
           accessSecret: tokenSecret,
@@ -65,10 +68,13 @@ module.exports = function(passport){
           timezoneOffset: profile._json.user.offsetFromUTCMillis,
           avatar:profile._json.user.avatar,
           distanceUnit:profile._json.user.distanceUnit,
-          setGoal:false
+          setGoal:false,
+	  calorieGoal:null,
+	  stepGoal:null,
+	  steps:0,
+	  calories:0
 	  });
-      });
-    done(null,profile);
-  }
-));
-};
+      
+      done(null,profile);}});
+  });
+}));};

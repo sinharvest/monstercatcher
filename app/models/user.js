@@ -13,8 +13,8 @@ var fitbitSchema = mongoose.Schema({
     setGoal: Boolean,
     calorieGoal: Number,
     stepGoal: Number,
-    caloriesBurntToday: Number,
-    caloriesBurntToday: Number 
+    steps: Number,
+    calories: Number 
 });
-//fitbitSchema.set('_id',false);
+fitbitSchema.set('_id',false);
 module.exports = mongoose.model('User',fitbitSchema);
