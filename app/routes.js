@@ -5,7 +5,7 @@ var configAuth = require('../config/auth.js');
 var Fitbit = require('fitbit');
 
 //app/routes.js
-module.exports = function(app, passport, db){
+module.exports = function(app, passport){
 
 //homepage	
   app.get('/', function(req, res){

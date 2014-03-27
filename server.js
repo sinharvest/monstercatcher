@@ -18,7 +18,7 @@ db.once('open', function callback () {
 
 require('./config/passport')(passport);//pass passport for configuration
 
-app.configure(function(){
+//app.configure(function(){
 	
 	//set up epxress app
 	app.use(express.logger('dev'));//log every req to the console
@@ -40,10 +40,10 @@ app.configure(function(){
 	app.use(flash());//use connect-flash for flash messages stored in session
         //other customization
 	console.log("the dirname is:  "+__dirname);
-});
+//});
 
 //routes ========================================
-require('./app/routes.js')(app, passport, db);//load our routes and pass in our app a fully configured passport
+require('./app/routes.js')(app, passport);//load our routes and pass in our app a fully configured passport
 
 //launch ========================================
 app.listen(port);

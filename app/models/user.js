@@ -10,7 +10,7 @@ var fitbitSchema = mongoose.Schema({
     avatar: String,
     distanceUnit: String,
     trophies: [Boolean],
-    setGoal: Boolean,
+    setGoal: [Boolean],
     calorieGoal: Number,
     stepGoal: Number,
     steps: Number,
