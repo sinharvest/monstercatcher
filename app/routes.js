@@ -7,6 +7,30 @@ var trophyLogic = require('../config/trophylogic.js');
 //app/routes.js
 module.exports = function(app, passport){
 
+//post settings to db
+  app.post('/update_calories', isLoggedIn, function(req, res){
+    User.findOne({id:req.user},function(err,item){ 
+      if(item){
+        console.log('item found');
+	    item.calorieGoal=req.body.content;
+	    item.save();
+      }
+      if(err){console.log('sum ting won');}
+    });
+    res.redirect('/profile');
+  });
+
+  app.post('/update_steps', isLoggedIn, function(req, res){
+    User.findOne({id:req.user},function(err,item){ 
+      if(item){
+        console.log('item found');
+	    item.stepGoal=req.body.content;
+	    item.save();
+      }
+      if(err){console.log('sum ting won');}
+    });
+    res.redirect('/profile');
+  });
 //homepage	
   app.get('/', function(req, res){
     res.render('index.ejs');
@@ -72,11 +96,12 @@ module.exports = function(app, passport){
 
 //trophy case
   app.get('/trophy',isLoggedIn,function(req,res){
-    var query = User.where({id:req.user});
-    query.findOne(function(err, kitten){console.log('kitty ='+kitten);
-      res.render('trophy.ejs', {
-	user:User
-      });
+    User.findOne({id:req.user},function(err,item){
+      if(item){	
+	res.render('trophy.ejs', {
+	  user:item
+        });
+      }	
     });
   });
 

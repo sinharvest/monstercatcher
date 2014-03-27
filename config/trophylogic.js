@@ -25,28 +25,36 @@ exports.trophyOfTheDayNumber = function(){
 }
 
 exports.trophyStore = function(item){
-  if(trophyOfTheDayNumber==0){
+  if(this.trophyOfTheDayNumber()==0){
     item.trophies.monster0=true;
+    item.save();
   }
-  if(trophyOfTheDayNumber==1){
+  if(this.trophyOfTheDayNumber()==1){
     item.trophies.monster1=true;
+    item.save();
   }
-  if(trophyOfTheDayNumber==2){
+  if(this.trophyOfTheDayNumber()==2){
     item.trophies.monster2=true;
+    item.save();
   }
-  if(trophyOfTheDayNumber==3){
+  if(this.trophyOfTheDayNumber()==3){
     item.trophies.monster3=true;
+    item.save();
   }
-  if(trophyOfTheDayNumber==4){
+  if(this.trophyOfTheDayNumber()==4){
     item.trophies.monster4=true;
+    item.save();
   }
-  if(trophyOfTheDayNumber==5){
+  if(this.trophyOfTheDayNumber()==5){
     item.trophies.monster5=true;
+    item.save();
   }
-  if(trophyOfTheDayNumber==6){
+  if(this.trophyOfTheDayNumber()==6){
     item.trophies.monster6=true;
+    item.save();
   }
-  if(trophyOfTheDayNumber==7){
+  if(this.trophyOfTheDayNumber()==7){
     item.trophies.monster7=true;
+    item.save();
   }
 }
