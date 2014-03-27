@@ -3,7 +3,7 @@ var request = require('request');
 var moment = require('moment');
 var configAuth = require('../config/auth.js');
 var Fitbit = require('fitbit');
-
+var trophyLogic = require('../config/trophylogic.js');
 //app/routes.js
 module.exports = function(app, passport){
 
@@ -16,6 +16,11 @@ module.exports = function(app, passport){
   app.get('/login', function(req, res){
     res.render('login.ejs', {message:req.flash('loginMessage')});
   });  
+
+//testspace
+  app.get('/test', function(req, res){
+    trophyLogic.trophyOfTheDay();
+  });
 
 //omitted signup part of tutorial
 
@@ -42,11 +47,13 @@ module.exports = function(app, passport){
 	      console.log('failed to find user');
 	      }
 	    if(item){
-	      console.log('found user');
-	      console.log(item);
 	      item.steps=activities.steps();
 	      item.calories=activities.activityCalories();
-	      res.render('profile.ejs',{user:item});  
+	      //if goals have been met award trophy
+	      if(trophyLogic.trophyCatch(item.steps,item.stepGoal,item.calories,item.calorieGoal)){
+                trophyLogic.trophyStore(item); 	      
+	      }else{console.log('no trophy awarded yet!');}
+	      res.render('profile.ejs',{user:item,trophy:trophyLogic.trophyOfTheDayImage()});  
 	    }
 	  });
 	  

@@ -72,7 +72,17 @@ module.exports = function(passport){
 	        calorieGoal:9001,
 	        stepGoal:9001,
 	        steps:0,
-	        calories:0
+	        calories:0,
+		trophies:{
+                  monster0:false,
+                  monster1:false,
+                  monster2:false,
+                  monster3:false,
+                  monster4:false,
+                  monster5:false,
+                  monster6:false,
+                  monster7:false,
+		  }
 	       }
       );  
       done(null,profile);
