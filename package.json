@@ -13,5 +13,5 @@
     "bcrypt-nodejs": "*",
     "moment": "^2.5.1",
     "bootstrap": "0.0.2"
-  },
+  }
 }
