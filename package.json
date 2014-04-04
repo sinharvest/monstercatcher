@@ -4,14 +4,12 @@
   "dependencies": {
     "express": "*",
     "ejs": "0.8.5",
-    "mongoose": "*",
     "passport": "0.2.0",
-    "passport-local": "*",
+    "passport-local": "^1.0.0",
     "fitbit": "0.0.2",
     "passport-fitbit": "0.1.2",
-    "connect-flash": "*",
-    "bcrypt-nodejs": "*",
     "moment": "^2.5.1",
-    "bootstrap": "0.0.2"
+    "bootstrap": "0.0.2",
+    "mongoose": "^3.8.8"
   }
 }
