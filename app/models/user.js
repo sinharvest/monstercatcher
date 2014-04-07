@@ -1,5 +1,4 @@
-var mongoose = require('mongoose'),
-    bcrypt = require('bcrypt-nodejs');
+var mongoose = require('mongoose');
 //make a schema
 var fitbitSchema = mongoose.Schema({
     id : String,

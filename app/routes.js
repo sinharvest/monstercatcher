@@ -1,5 +1,4 @@
 var User = require('./models/user');
-var request = require('request');
 var moment = require('moment');
 var configAuth = require('../config/auth.js');
 var Fitbit = require('fitbit');

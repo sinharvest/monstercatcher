@@ -1,5 +1,5 @@
 //config/database.js
 
 module.exports = {
-  'url':'mongodb://localhost:27017/fitbit'
+  'url':'process.env.MONGOHQ_URL'
 };
