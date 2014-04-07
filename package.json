@@ -1,5 +1,5 @@
 {
-  "name": "node-authentication",
+  "name": "monstercatcher",
   "main": "server.js",
   "dependencies": {
     "express": "*",
@@ -13,5 +13,10 @@
     "mongoose": "^3.8.8",
     "connect-flash": "^0.1.1",
     "oauth": "^0.9.11"
+  },
+  "description":"Git fit by catcher monsterz!",
+  "repository":{
+    "type":"git",
+    "url":"http://github.com/npm/npm.git"
   }
 }
