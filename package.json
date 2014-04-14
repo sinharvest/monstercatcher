@@ -23,6 +23,7 @@
   },
   "engines": {
     "node": "0.10.X",
-    "connect": "*"
+    "npm":"1.*",
+    "connect": "3.*"
   }
 }
