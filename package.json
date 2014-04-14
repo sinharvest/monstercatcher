@@ -2,7 +2,7 @@
   "name": "monstercatcher",
   "main": "server.js",
   "dependencies": {
-    "express": "*",
+    "express": "^4.0.0",
     "ejs": "0.8.5",
     "passport": "0.2.0",
     "passport-local": "^1.0.0",
