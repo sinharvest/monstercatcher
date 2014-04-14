@@ -19,5 +19,7 @@
     "type":"git",
     "url":"http://github.com/npm/npm.git"
   },
-  "version":"0.10.26"
+  "engines":{
+  "node":"0.10.X"
+  }
 }
