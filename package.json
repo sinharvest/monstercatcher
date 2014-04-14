@@ -13,7 +13,6 @@
     "mongoose": "^3.8.8",
     "connect-flash": "^0.1.1",
     "oauth": "^0.9.11",
-    "logger": "0.0.1",
     "body-parser": "^1.0.1",
     "connect": "^2.14.4"
   },
@@ -24,7 +23,6 @@
   },
   "engines": {
     "node": "0.10.X",
-    "npm": "1.*",
-    "connect": "3.*"
+    "npm": "1.*"
   }
 }
