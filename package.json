@@ -12,14 +12,16 @@
     "bootstrap": "0.0.2",
     "mongoose": "^3.8.8",
     "connect-flash": "^0.1.1",
-    "oauth": "^0.9.11"
+    "oauth": "^0.9.11",
+    "logger": "0.0.1"
   },
-  "description":"Git fit by catcher monsterz!",
-  "repository":{
-    "type":"git",
-    "url":"http://github.com/npm/npm.git"
+  "description": "Git fit by catcher monsterz!",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/npm/npm.git"
   },
-  "engines":{
-  "node":"0.10.X"
+  "engines": {
+    "node": "0.10.X",
+    "connect": "*"
   }
 }
